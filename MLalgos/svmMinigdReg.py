@@ -1,6 +1,7 @@
 import numpy as np
 import time
 import cifarload as cifar
+
 strt = time.time()
 print("Classification of CIFAR-10 dataset using regularized SVM with Minibatch gradient descent")
 #trainData,trainLabels,testData,testLabels = cifar.load_CIFAR_10()
@@ -65,6 +66,6 @@ def test():
         for i in range(1,int(xt.shape[0]/M)*M,M):
                 res = np.dot(w,np.transpose(xt[i:i+M]))
                 sum1 += (list(np.argmax(res,0)==yt[i:i+M]).count(True))
-        print("Test accuracy is: %1.3f" % (sum1*100/9984)+" %")
+        print("Test accuracy is: %1.3f" % (sum1*100/(int(xt.shape[0]/M)*M))+" %")
         print("Total execution time: %1.3f s" % (time.time()-strt))
 test()
