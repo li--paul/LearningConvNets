@@ -47,9 +47,9 @@ def eval_grad(xi,yi,W):
         scaled[yi,range(M)] = -1*np.sum(scaled,0)
         scaled[yi,range(M)] += 1 # remove the contribution from the correct class
         
-        sca = scaled
+        sca = W
         grad = np.dot(scaled,np.transpose(xi))
-        grad += LAMBDA*W
+        grad[:,:-1] += LAMBDA*W[:,:-1]
         xd = xi
         return grad
 def train():

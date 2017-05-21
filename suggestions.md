@@ -2,8 +2,10 @@
 
 I know that ML and ANN experts provide various suggestions such as choice of parameters, optimizing codes, etc one must use while designing an algorithm.
 Many students follow these suggestions blindly, and I myself don't completely trust a suggestion till I try it. Here, I try for myself and show a real example of what happens when these suggestions are not followed. 
+
 I consider various python scripts from my repo, and show the results of the algorithm before and after incorporating these suggestions in the script. 
-Later, after gathering a considerable amount of suggestions and noticing the impact on the results, I will try and create a large database of results generated using different combinations of these suggestions. 
+Later, after gathering a considerable amount of suggestions and noticing the impact on the results, I will try and create a large database of results generated using different combinations of these suggestions.
+ 
 I also hope to expand this to other datasets than CIFAR and to other applications outside Computer Vision.
 
 (All these suggestions will later be converted into interactive Jupyter notebooks for a better view of the results and code used for the same.)
