@@ -1,0 +1,273 @@
+{
+    "traceEvents": [
+        {
+            "name": "process_name",
+            "args": {
+                "name": "Allocators"
+            },
+            "pid": 0,
+            "ph": "M"
+        },
+        {
+            "name": "process_name",
+            "args": {
+                "name": "/job:localhost/replica:0/task:0/cpu:0 Compute"
+            },
+            "pid": 1,
+            "ph": "M"
+        },
+        {
+            "name": "process_name",
+            "args": {
+                "name": "/job:localhost/replica:0/task:0/cpu:0 Tensors"
+            },
+            "pid": 2,
+            "ph": "M"
+        },
+        {
+            "args": {
+                "name": "_SOURCE",
+                "op": "NoOp"
+            },
+            "cat": "Op",
+            "pid": 1,
+            "ph": "X",
+            "ts": 1495583815516881,
+            "tid": 0,
+            "name": "NoOp",
+            "dur": 32436
+        },
+        {
+            "args": {
+                "name": "random_normal/shape",
+                "op": "Const"
+            },
+            "cat": "Op",
+            "pid": 1,
+            "ph": "X",
+            "ts": 1495583815549342,
+            "tid": 0,
+            "name": "Const",
+            "dur": 21
+        },
+        {
+            "args": {
+                "name": "random_normal/mean",
+                "op": "Const"
+            },
+            "cat": "Op",
+            "pid": 1,
+            "ph": "X",
+            "ts": 1495583815549392,
+            "tid": 0,
+            "name": "Const",
+            "dur": 16
+        },
+        {
+            "args": {
+                "name": "random_normal/stddev",
+                "op": "Const"
+            },
+            "cat": "Op",
+            "pid": 1,
+            "ph": "X",
+            "ts": 1495583815549415,
+            "tid": 0,
+            "name": "Const",
+            "dur": 16
+        },
+        {
+            "args": {
+                "name": "random_normal_1/RandomStandardNormal",
+                "op": "RandomStandardNormal",
+                "input0": "random_normal_1/shape"
+            },
+            "cat": "Op",
+            "pid": 1,
+            "ph": "X",
+            "ts": 1495583815549440,
+            "tid": 0,
+            "name": "RandomStandardNormal",
+            "dur": 70984
+        },
+        {
+            "args": {
+                "name": "random_normal/RandomStandardNormal",
+                "op": "RandomStandardNormal",
+                "input0": "random_normal/shape"
+            },
+            "cat": "Op",
+            "pid": 1,
+            "ph": "X",
+            "ts": 1495583815549413,
+            "tid": 1,
+            "name": "RandomStandardNormal",
+            "dur": 71193
+        },
+        {
+            "id": 0,
+            "cat": "DataFlow",
+            "pid": 1,
+            "ph": "s",
+            "ts": 1495583815549363,
+            "tid": 0,
+            "name": "random_normal/shape"
+        },
+        {
+            "id": 0,
+            "cat": "DataFlow",
+            "pid": 1,
+            "ph": "t",
+            "ts": 1495583815549413,
+            "tid": 1,
+            "name": "random_normal/shape"
+        },
+        {
+            "args": {
+                "name": "random_normal_1/mul",
+                "op": "Mul",
+                "input1": "random_normal_1/stddev",
+                "input0": "random_normal_1/RandomStandardNormal"
+            },
+            "cat": "Op",
+            "pid": 1,
+            "ph": "X",
+            "ts": 1495583815621032,
+            "tid": 0,
+            "name": "Mul",
+            "dur": 1186
+        },
+        {
+            "args": {
+                "name": "random_normal/mul",
+                "op": "Mul",
+                "input1": "random_normal/stddev",
+                "input0": "random_normal/RandomStandardNormal"
+            },
+            "cat": "Op",
+            "pid": 1,
+            "ph": "X",
+            "ts": 1495583815621035,
+            "tid": 1,
+            "name": "Mul",
+            "dur": 1177
+        },
+        {
+            "id": 1,
+            "cat": "DataFlow",
+            "pid": 1,
+            "ph": "s",
+            "ts": 1495583815549431,
+            "tid": 0,
+            "name": "random_normal/stddev"
+        },
+        {
+            "id": 1,
+            "cat": "DataFlow",
+            "pid": 1,
+            "ph": "t",
+            "ts": 1495583815621035,
+            "tid": 1,
+            "name": "random_normal/stddev"
+        },
+        {
+            "args": {
+                "name": "random_normal",
+                "op": "Add",
+                "input1": "random_normal/mean",
+                "input0": "random_normal/mul"
+            },
+            "cat": "Op",
+            "pid": 1,
+            "ph": "X",
+            "ts": 1495583815622228,
+            "tid": 0,
+            "name": "Add",
+            "dur": 1274
+        },
+        {
+            "id": 2,
+            "cat": "DataFlow",
+            "pid": 1,
+            "ph": "s",
+            "ts": 1495583815622212,
+            "tid": 1,
+            "name": "random_normal/mul"
+        },
+        {
+            "id": 2,
+            "cat": "DataFlow",
+            "pid": 1,
+            "ph": "t",
+            "ts": 1495583815622228,
+            "tid": 0,
+            "name": "random_normal/mul"
+        },
+        {
+            "args": {
+                "name": "random_normal_1",
+                "op": "Add",
+                "input1": "random_normal_1/mean",
+                "input0": "random_normal_1/mul"
+            },
+            "cat": "Op",
+            "pid": 1,
+            "ph": "X",
+            "ts": 1495583815622228,
+            "tid": 1,
+            "name": "Add",
+            "dur": 1273
+        },
+        {
+            "id": 3,
+            "cat": "DataFlow",
+            "pid": 1,
+            "ph": "s",
+            "ts": 1495583815622218,
+            "tid": 0,
+            "name": "random_normal_1/mul"
+        },
+        {
+            "id": 3,
+            "cat": "DataFlow",
+            "pid": 1,
+            "ph": "t",
+            "ts": 1495583815622228,
+            "tid": 1,
+            "name": "random_normal_1/mul"
+        },
+        {
+            "args": {
+                "name": "MatMul",
+                "op": "MatMul",
+                "input1": "random_normal_1",
+                "input0": "random_normal"
+            },
+            "cat": "Op",
+            "pid": 1,
+            "ph": "X",
+            "ts": 1495583815623512,
+            "tid": 0,
+            "name": "MatMul",
+            "dur": 73270
+        },
+        {
+            "id": 4,
+            "cat": "DataFlow",
+            "pid": 1,
+            "ph": "s",
+            "ts": 1495583815623501,
+            "tid": 1,
+            "name": "random_normal_1"
+        },
+        {
+            "id": 4,
+            "cat": "DataFlow",
+            "pid": 1,
+            "ph": "t",
+            "ts": 1495583815623512,
+            "tid": 0,
+            "name": "random_normal_1"
+        }
+    ]
+}
